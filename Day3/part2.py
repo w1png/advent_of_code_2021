@@ -1,8 +1,6 @@
 # Keeping it extremely unoptimized bcuz I wasted like 5 hours on this one smh.
 from sys import stdin
-data = stdin.readlines()
-data = [i.rstrip() for i in data]
-
+data = list(map(str.rstrip, stdin.readlines()))
 oxygen_gen_rating = set(data.copy())
 current_bit = 0
 

@@ -1,9 +1,7 @@
 from sys import stdin
-
 y = 0
 x = 0
-for command in stdin.readlines():
-    command = command.rstrip()
+for command in list(map(str.rstrip ,stdin.readlines())):
     if command.startswith("forward "):
         x += int(command[8:])
     elif command.startswith("up "):

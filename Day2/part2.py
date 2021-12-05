@@ -1,10 +1,8 @@
 from sys import stdin
-
 y = 0
 x = 0
 aim = 0
-for command in stdin.readlines():
-    command = command.rstrip()
+for command in list(map(str.rstrip ,stdin.readlines())):
     if command.startswith("forward "):
         x += int(command[8:])
         y += aim * int(command[8:])
@@ -12,5 +10,4 @@ for command in stdin.readlines():
         aim -= int(command[3:])
     elif command.startswith("down "):
         aim += int(command[5:])
-
 print(f"Answer: {x * y}")

@@ -1,10 +1,9 @@
 from sys import stdin
-measurements = stdin.readlines()
-prev = int(measurements[0])
+measurements = list(map(int, stdin.readlines()))
+prev = measurements[0]
 answer = 0
 for depth in measurements:
-    depth = int(depth)
-    if depth > prev:
-        answer += 1
+    answer += 1 if depth > prev else 0
     prev = depth
 print(f"Answer: {answer}")
+# 1602
