@@ -16,4 +16,3 @@ fn main() {
     }
     println!("{:?}", (fish_list.len()));
 }
-
