@@ -13,20 +13,23 @@ boards_list = get_boards_list()
 stop = False
 for num in draw_order:
     if stop:
+        win_board = board
         break
     for board in boards_list:
-        for line in board:
-            if num in line:
-                line.remove(num)
-            if len(line) == 0:
+        for row in board:
+            if num in row:
+                row[row.index(num)] = None
+            if row == [None, None, None, None, None]:
                 win_num = int(num)
                 stop = True
-        if stop:
-            win_board = board
-            break
+    for column in [[board[j][i] for j in range(5)] for i in range(5)]:
+        if column == [None, None, None, None, None]:
+            win_num = int(num)
+            stop = True
 
 summ = 0
 for line in win_board:
+    while None in line:
+        line.remove(None)
     summ += sum(map(int, line))
-
-print("Answer:", summ * win_num)
+print(win_num * summ)
